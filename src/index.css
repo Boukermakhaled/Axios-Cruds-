@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@theme{
+  --color-light-white: #f0f3f5;
+  --color-tred: #EA5455;
+  --color-tgreen: #28c76f;
+  --color-bred: #fa4444;
+  --color-bgreen: #26b265;
+  --color-bpurple: #5656a7;
+  --color-blightred: #f89595;
+  --color-bdeepblue: #0015ff;
+  --color-blightblue: #0c8ce9;
+  --color-byellow: #ffc300;
+  --font-light : "RubikLight";
+  --font-regular : "RubikReg";
+  --font-medium : "Rubikmed";
+  --font-semiBold : "RubikSemi";
+  --font-bold : "RubikBold";
+}
+@font-face {
+  font-family: RubikLight;
+  src: url('/public/fonts/Rubik-Light.ttf');
+}
+@font-face {
+  font-family: RubikReg;
+  src: url('/public/fonts/Rubik-Regular.ttf');
+}
+@font-face {
+  font-family: Rubikmed;
+  src: url('/public/fonts/Rubik-Medium.ttf');
+}
+@font-face {
+  font-family: RubikSemi;
+  src: url('/public/fonts/Rubik-SemiBold.ttf');
+}
+@font-face {
+  font-family: RubikBold;
+  src: url('/public/fonts/Rubik-Bold.ttf');
+}
