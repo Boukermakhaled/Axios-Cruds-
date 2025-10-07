@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './App.css'
+import SideBar from './Compounents/SideBar'
 
 function App() {
   return (
     <>
-      <h3 className="text-tgreen font-light">errrr</h3>
+     <SideBar />
     </>
   )
 }

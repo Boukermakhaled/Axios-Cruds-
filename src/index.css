@@ -1,4 +1,7 @@
 @import "tailwindcss";
+*{
+  font-family: var(--font-Regular);
+}
 @theme{
   --color-light-white: #f0f3f5;
   --color-tred: #EA5455;
@@ -10,11 +13,11 @@
   --color-bdeepblue: #0015ff;
   --color-blightblue: #0c8ce9;
   --color-byellow: #ffc300;
-  --font-light : "RubikLight";
-  --font-regular : "RubikReg";
-  --font-medium : "Rubikmed";
-  --font-semiBold : "RubikSemi";
-  --font-bold : "RubikBold";
+  --font-Light : "RubikLight";
+  --font-Regular : "RubikReg";
+  --font-Medium : "Rubikmed";
+  --font-SemiBold : "RubikSemi";
+  --font-Bold : "RubikBold";
 }
 @font-face {
   font-family: RubikLight;
