@@ -39,3 +39,7 @@
   font-family: RubikBold;
   src: url('/public/fonts/Rubik-Bold.ttf');
 }
+.active{
+  background-color: var(--color-bpurple);
+  color: #fff;
+}
