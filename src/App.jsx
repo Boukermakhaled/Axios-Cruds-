@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import SideBar from './Compounents/SideBar'
 import Header from './Compounents/Header'
+import Table from './Compounents/Table'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
      <SideBar />
      <div className="content col-start-2 col-end-5 flex flex-col gap-7">
       <Header />
+      <Table />
      </div>
     </div>
   )
