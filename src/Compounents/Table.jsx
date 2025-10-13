@@ -26,7 +26,7 @@ export default function Table(){
     },[]);
     const list = products.map((pr)=>{
         
-        return <tr  className="p-4  text-xs  ">
+        return <tr key={pr.id} className="p-4  text-xs  ">
             <td className=" flex justify-center px-2"><img src={pr.image} alt="" className="w-9"/></td>
             <td className="max-w-3xs">{pr.title}</td>
             <td>{pr.price}</td>
