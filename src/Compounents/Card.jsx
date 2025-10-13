@@ -28,7 +28,7 @@ export default function Card({ show, info }) {
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        <img src={info.image} alt="" className="w-26 md:w-36" />
+        <img src={info.image} alt="" className="w-23 md:w-36" />
         <div className="content flex flex-col gap-3 mt-4 self-start">
           <div className="title text-center">
             <h3 className="font-semibold text-lg text-left">{info?.title}</h3>
