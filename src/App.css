@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+input[type="file"]::file-selector-button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
