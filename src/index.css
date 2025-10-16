@@ -43,3 +43,6 @@
   background-color: var(--color-bpurple);
   color: #fff;
 }
+.input{
+  @apply border border-gray-200 rounded-2xl p-2 md:text-base text-xs;
+}
