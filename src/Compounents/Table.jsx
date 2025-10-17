@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react"
+import { use, useEffect, useState } from "react"
 import axios from "axios"
 //icon
-import {Eye, Pencil} from 'lucide-react'
+import {Eye, Pencil, Trash} from 'lucide-react'
 import Card from "./Card";
+import Add from "./AddCard";
+import Del from "./Delete";
 export default function Table(){
     const [products, setproducts] = useState([]);
     const [showCard, seetShow] = useState(false);
     const [Cardinfo, setCard] = useState({});
+    const [edit, setEdit] = useState(false)
+    const [del, setDelete] = useState(false);
     useEffect(()=> {
         axios.get('https://fakestoreapi.com/products')
   .then(function (response) {
@@ -34,11 +38,29 @@ export default function Table(){
             <td>{pr.rating.count}</td>
             <td>
                 <div  className="flex justify-center gap-1.5 md:gap-2 ">
-                <button className="cursor-pointer self-start flex gap-0.5 items-center  bg-blightblue/90 rounded-2xl py-1 px-2 md:py-1.5 text-sky-200 shadow-sky-200 shadow-md md:px-3.5" onClick={()=>{
-                seetShow(true);
-                setCard(pr);
-            }}><Eye size={16}/></button>
-            <button className=" cursor-pointer flex gap-0.5 items-center  bg-bpurple rounded-2xl py-1 px-2 md:py-1.5 text-purple-200 shadow-purple-200 shadow-md md:px-3.5"><Pencil size={16}/></button>
+                <button 
+                className="cursor-pointer self-start flex gap-0.5 items-center 
+                 bg-blightblue/90 rounded-2xl py-1 px-2 md:py-1.5 text-sky-200
+                  shadow-sky-200 shadow-md md:px-3.5" 
+                  onClick={()=>{
+                         seetShow(true);
+                         setCard(pr);
+                        }}
+            ><Eye size={16}/></button>
+            <button
+             className=" cursor-pointer flex gap-0.5 items-center  bg-bpurple 
+             rounded-2xl py-1 px-2 md:py-1.5 text-purple-200 shadow-purple-200
+              shadow-md md:px-3.5" onClick={()=> {
+                setEdit(true)
+                setCard(pr)
+              }}><Pencil size={16}/></button>
+            <button
+             className=" cursor-pointer flex gap-0.5 items-center  bg-red-600 
+             rounded-2xl py-1 px-2 md:py-1.5 text-red-200 shadow-red-200
+              shadow-md md:px-3.5" onClick={()=> {
+                setDelete(true)
+                setCard(pr)
+              }}><Trash size={16}/></button>
             </div>
             </td>
             
@@ -46,6 +68,8 @@ export default function Table(){
     })
     return(
         <section className="relative shadow-2xl rounded-2xl">
+            <Add show={[edit, setEdit]} type={'edit'} proddata={Cardinfo}/>
+            <Del show={[del, setDelete]} data={Cardinfo}/>
             <table className="border-separate border-spacing-y-4 w-full rounded-2xl">
                 <thead  className="bg-light-white w-full text-xs">
                     <tr >

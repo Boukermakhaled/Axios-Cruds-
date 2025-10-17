@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Upload, File } from "lucide-react";
 import axios from "axios";
+//alert
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export default function Add({ show }) {
+export default function Add({ show, type, proddata }) {
   const [showCard, setShow] = show;
   const [visible, setVisible] = useState(false);
   const [file, setFile] = useState(null);
@@ -18,6 +21,20 @@ export default function Add({ show }) {
   });
 
   useEffect(() => {
+    if(type === "edit" && proddata ){
+    setFile(proddata?.image)
+    setData({
+      id: proddata?.id || "",
+    name: proddata?.title || "",
+    price: proddata?.price ||"",
+    category: proddata?.category || "",
+    count: proddata.rating?.count || "",
+    })
+    }
+    else if (type !== "edit") {
+    setFile(null);
+    setData({ id: "", name: "", price: "", category: "", count: "" });
+  }
     if (showCard) {
       setTimeout(() => setVisible(true), 10);
     } else {
@@ -45,26 +62,34 @@ export default function Add({ show }) {
     try {
       setLoading(true);
       const formData = new FormData();
-      formData.append("id", 0);
+      // formData.append("id", 0);
       formData.append("title", data.name);
       formData.append("price", data.price);
       formData.append("category", data.category);
       formData.append("count", data.count);
       formData.append("image", file);
-
-      const res = await axios.post("https://fakestoreapi.com/products", formData, {
+      let res;
+      if(type != 'edit'){
+       res =await axios.post("https://fakestoreapi.com/products", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
+      toast.success("added succesfully");
+      }else{
+        res = await axios.put(`https://fakestoreapi.com/products/${data.id}`,formData)
+       toast.success("updated succesfully");
 
+      }
       console.log("Response:", res.data);
-      alert("Product added successfully!");
-      setShow(false);
+      // alert("Product added successfully!");
+      
+      setTimeout(() => setShow(false), 1000);
+
       setData({ id: "", name: "", price: "", category: "", count: "" });
       setFile(null);
     } catch (err) {
-  console.error("Upload error:", err.response ? err.response.data : err.message);
-  alert("Error adding product!");
-}
+     console.error("Upload error:", err.response ? err.response.data : err.message);
+    toast.error("Error adding product!");
+    }
  finally {
       setLoading(false);
     }
@@ -116,8 +141,12 @@ export default function Add({ show }) {
             </>
           ) : (
             <div className="flex flex-col items-center gap-2">
-              <File size={40} className="text-green-500" />
-              <p className="text-gray-700 font-medium">{file.name}</p>
+              <img src={file  ? typeof file === "string" ? file 
+                       : URL.createObjectURL(file) 
+                        : ""  
+                        } alt="" className="w-17"/>
+              {/* <File size={40} className="text-green-500" /> */}
+              <p className="text-gray-700 font-medium text-xs">{file?.name}</p>
               <button
                 className="mt-2 px-4 py-1 text-sm bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
                 onClick={() => setFile(null)}
@@ -163,7 +192,7 @@ export default function Add({ show }) {
             disabled={loading}
             className="bg-sky-400/20 text-sky-400 hover:bg-sky-400/30 transform duration-300 rounded-2xl p-1.5 col-start-2 disabled:opacity-50"
           >
-            {loading ? "Saving..." : "Save"}
+            {loading ? "Saving..." : type == 'edit'? 'update' : 'save' }
           </button>
         </form>
       </div>

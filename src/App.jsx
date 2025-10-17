@@ -3,7 +3,8 @@ import './App.css'
 import SideBar from './Compounents/SideBar'
 import Header from './Compounents/Header'
 import Table from './Compounents/Table'
-
+//alert 
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className='container flex flex-col justify-center gap-5'>
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Table />
      {/* </div> */}
+        <ToastContainer position="top-right" autoClose={3000} />
     </div>
   )
 }
