@@ -14,6 +14,7 @@ function App() {
       <Table />
      {/* </div> */}
         <ToastContainer position="top-right" autoClose={3000} />
+        <h1 className='text-xs'>powered by <a href='https://abderrahmane-dev.netlify.app/' className='font-bold  underline text-[#00aeef]'>Abderrahmane dev</a></h1>
     </div>
   )
 }

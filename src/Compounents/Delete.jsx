@@ -40,7 +40,7 @@ export default function Del({show , data}){
             }`}
             onClick={(e) => e.stopPropagation()}
           >
-            <h1 className=" text-red-500 text-shadow-lg text-shadow-red-400/20"> Are you sure you want to delete this product? </h1>
+            <h1 className=" text-red-500 text-shadow-lg/50 text-shadow-red-400/20"> Are you sure you want to delete this product? </h1>
          <img src={data?.image} alt="" className="mt-4 w-17"/>
         <h3 className="mt-4 font-semibold text-md text-left">{data?.title}</h3>
             <div className="buttons mt-4 flex gap-2 ">
