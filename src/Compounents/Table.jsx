@@ -37,27 +37,27 @@ export default function Table(){
             <td>{pr.category}</td>
             <td>{pr.rating.count}</td>
             <td>
-                <div  className="flex justify-center gap-1.5 md:gap-2 ">
+                <div  className="flex justify-center gap-1.5 md:gap-2 px-2">
                 <button 
                 className="cursor-pointer self-start flex gap-0.5 items-center 
-                 bg-blightblue/90 rounded-2xl py-1 px-2 md:py-1.5 text-sky-200
-                  shadow-sky-200 shadow-md md:px-3.5" 
+                 md:bg-blightblue/20 rounded-2xl  md:py-1.5 text-sky-500
+                  shadow-sky-200 md:shadow-md/30 md:px-3.5" 
                   onClick={()=>{
                          seetShow(true);
                          setCard(pr);
                         }}
             ><Eye size={16}/></button>
             <button
-             className=" cursor-pointer flex gap-0.5 items-center  bg-bpurple 
-             rounded-2xl py-1 px-2 md:py-1.5 text-purple-200 shadow-purple-200
-              shadow-md md:px-3.5" onClick={()=> {
+             className=" cursor-pointer flex gap-0.5 items-center  md:bg-bpurple/20 
+             rounded-2xl  md:py-1.5 text-purple-500 shadow-purple-200
+              md:shadow-md/30 md:px-3.5" onClick={()=> {
                 setEdit(true)
                 setCard(pr)
               }}><Pencil size={16}/></button>
             <button
-             className=" cursor-pointer flex gap-0.5 items-center  bg-red-600 
-             rounded-2xl py-1 px-2 md:py-1.5 text-red-200 shadow-red-200
-              shadow-md md:px-3.5" onClick={()=> {
+             className=" cursor-pointer flex gap-0.5 items-center  md:bg-red-600/20 
+             rounded-2xl md:py-1.5 text-red-500 shadow-red-200
+              md:shadow-md/30 md:px-3.5" onClick={()=> {
                 setDelete(true)
                 setCard(pr)
               }}><Trash size={16}/></button>

@@ -44,7 +44,7 @@ export default function Del({show , data}){
          <img src={data?.image} alt="" className="mt-4 w-17"/>
         <h3 className="mt-4 font-semibold text-md text-left">{data?.title}</h3>
             <div className="buttons mt-4 flex gap-2 ">
-                <button className="cursor-pointer bg-green-400/30 px-2 py-1 rounded-2xl text-green-600" onClick={hundeleDel}>confirm</button>
+                <button className="cursor-pointer bg-green-400/30 px-2 py-1 rounded-2xl text-green-600" onClick={hundeleDel}>Confirm</button>
                 <button className="cursor-pointer bg-red-400/30 px-2 py-1 rounded-2xl text-red-600" onClick={()=>{setShow(false)}}>Cancel</button>
             </div>
             </div>
