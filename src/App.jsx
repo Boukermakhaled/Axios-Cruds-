@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-import SideBar from './Compounents/SideBar'
 import Header from './Compounents/Header'
 import Table from './Compounents/Table'
 //alert 
